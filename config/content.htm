@@ -30,23 +30,25 @@
 <p><img alt="" height="414" src="/images/amachi ipv6.png" width="275"/></p>
 <p>將組長的ipv6位址取代網址中的[::]及可成功連上小組網頁動態進行編輯。</p>
 <h2>利用虛擬主機建立Ethercalc伺服器</h2>
-<p>安裝curl</p>
+<p>使用的ubuntu版本為20.04</p>
+<p><img alt="" height="392" src="/images/ubuntu20.04.png" width="700"/></p>
+<p><strong>安裝curl</strong></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">sudo apt install curl</pre>
 <p><img alt="" height="625" src="/images/ubuntu20.04-curl.png" width="700"/></p>
-<p>納入 Nodesource repository</p>
+<p><strong>納入 Nodesource repository</strong></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -</pre>
-<p><img alt="" height="626" src="/images/ubuntu20.04-ethercalc-Nodesource repository.png" width="700"/><br/><strong></strong>安裝 node.js</p>
+<p><img alt="" height="626" src="/images/ubuntu20.04-ethercalc-Nodesource repository.png" width="700"/><br/><strong>安裝 node.js</strong></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">sudo apt install --assume-yes nodejs</pre>
 <p><img alt="" height="605" src="/images/ubuntu20.04-ethercalc-nodejs.png" width="700"/></p>
-<p>安裝npm</p>
+<p><strong>安裝npm</strong></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">sudo apt install npm</pre>
 <p><img alt="" height="626" src="/images/ubuntu20.04-npm.png" width="700"/></p>
-<p>安裝 ethercalc</p>
+<p><strong>安裝 ethercalc</strong></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">sudo npm install -g ethercalc</pre>
-<p><img alt="" height="627" src="/images/ubuntu20.04-ethercalc.png" width="700"/><br/>開啟ethercalc server</p>
+<p><img alt="" height="627" src="/images/ubuntu20.04-ethercalc.png" width="700"/><br/><strong>開啟ethercalc server</strong></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">ethercalc</pre>
 <p><img alt="" height="622" src="/images/ubuntu20.04-ethercalc-server.png" width="700"/></p>
-<p>使用firefox前往 <a href="http://cd2021ag26:8000">http://cd2021ag26:8000</a> </p>
+<p><strong>使用firefox前往</strong> <a href="http://cd2021ag26:8000">http://cd2021ag26:8000</a> </p>
 <p><img alt="" height="628" src="/images/ubuntu20.04-ethercalc-ok.png" width="700"/></p>
 <p></p>
 <p></p>
