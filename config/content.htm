@@ -76,5 +76,65 @@
 <h2><strong>肆代機(version 4.0.0) V(=^･ω･^=)v</strong></h2>
 <p>場景檔:<a href="https://drive.google.com/file/d/122SyiBWZQpqqTPrJkhfHVHMAU9kx8AMN/view?usp=sharing">https://drive.google.com/file/d/122SyiBWZQpqqTPrJkhfHVHMAU9kx8AMN/view?usp=sharing</a> </p>
 <p>stl檔:<a href="https://drive.google.com/file/d/1XN7ku3YdPHd53RKRVKYT9fSw2k-Rs_4s/view?usp=sharing">https://drive.google.com/file/d/1XN7ku3YdPHd53RKRVKYT9fSw2k-Rs_4s/view?usp=sharing</a> </p>
-<p></p>
-<p></p>
+<h1>W4</h1>
+<h2><yt-formatted-string class="style-scope ytd-video-primary-info-renderer" force-default-style="">利用程式方法更改影片檔名</yt-formatted-string></h2>
+<p><span>使用python程式編寫進而達到更改影片名稱的效果，藉由最後修改時間做為線索來判斷組別，依此線索先利用程式取得各檔案最後修改時間，將取得的時間加入檔名前端進行排序，最後再進行檔名修整，修整為所要的格式。 1.取得最後修改時間，將時間加入檔頭後，放入串列。 2.使用串列排序，排列後更名(階段性更名，此步驟重點為順序)。 3.更改為最終需要的檔名格式。</span></p>
+<p><span>程式碼如下。</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import os
+#sorted:排序。
+def renameFilesAndSortedByTime(dirPath):
+    #建立空串列。
+    newlist = []
+    #獲取檔名列表。
+    files = os.listdir(dirPath)
+    #獲取新增修改時間的檔名列表。
+    for j in files:
+        #獲取從1970年1月1日上午12時00分到檔案最後修改的UTC時間總共經過多少秒。
+        createTime = os.path.getmtime(dirPath + j)
+        # 將createTime中取得的秒數加入文件名稱前方，並加入串列以利排序。
+        newlist.append(str(int(createTime)) + "-" + j)
+
+    # 將串列進行排序
+    newlist = sorted(newlist)
+    #印出串列
+    print(newlist)
+    # range()內的數字經由len(newlist)決定
+    #len()主要用來傳回串列參數L的長度，也就是包含幾個元素。
+    for i in range(len(newlist)):
+        #newlist[i][11:]
+        #[i]的意思為串列中的第i項。
+        #[11:]是用來取得檔案名稱從第12字元開始到最後字元的檔名。
+        #使用上述兩個方法再配合迴圈可取得串列內所有檔案的舊檔名。
+        oldName = newlist[i][11:]
+
+        # 將秒數部分修改為序號，得到新的文件名。
+        # 一定要按照下列寫法否則後期排序更名會出現錯誤。
+        newName = newlist[i][11:]
+        if (i + 1) &lt; 10:
+            newName = '00' + str(i + 1) + newName
+        elif (i + 1) &gt; 9 and (i + 1) &lt; 100:
+            newName = '0' + str(i + 1) + newName
+        else:
+            newName = str(i + 1) + newName
+        # dirpath為目標文件資料夾。
+        # 重命名文件照修改時間加序号在前方。
+        os.rename(dirPath + oldName, dirPath + newName)
+
+if __name__ == '__main__':
+    renameFilesAndSortedByTime("C:/Users/Administrator/Downloads/2021-03_2a_stage1/")
+    print("rename ok!")
+    path = 'C:/Users/Administrator/Downloads/2021-03_2a_stage1/'
+    #轉入目標文件夾。
+    file=os.listdir(path)
+    print(file) #印出讀取到的檔名稱。
+    n=0 #設定初始值。
+    for i in file: #因為資料夾裡面的檔案都要重新更換名稱。
+        oldname=path+file[n] #path為路徑名稱，[n]表示第n個檔案。
+        newname=path+'cd2021_2a_'+str(n+1)+'.mp4' 
+        os.rename(oldname,newname)
+        print(oldname+'&gt;'+newname) 
+        n=n+1 
+
+    </pre>
+<p>youtube:</p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/8cxVGoyUiJM" title="YouTube video player" width="560"></iframe></p>
