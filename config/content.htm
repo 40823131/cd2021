@@ -245,23 +245,31 @@ for i in range(len(data)):
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># open file, default is read mode, since txt content no chinese char
 # no encoding = "UTF-8" is needed
 with open("stage3_2a.txt") as fh:
-    # readlines will read into the whole line and put into list format
-    # has \n at the end of each line
+    #開啟stage3_2a.txt檔案並命名為fh,並且使用with語法無需使用關閉語法cloce(),文件開啟後會自動關閉.
     data = fh.readlines()
+    #讀取文件的每一行,直到遇到结束符 EOF.
     data = [a.replace('4823122','40823122') for a in data]
+    #利用取代(replace)修正讀取出的錯誤學號.
     data = [c.replace('\t\t\t\t','') for c in data]
-    print(data)
+    #其中一組為六人,因此需消除列表中的多餘空格.
+    #print(data)
 #print(len(data))
 for i in range(len(data)):
+    #以range為len(data)=6進行迴圈,變數為i
     group = data[i].rstrip("\n").split("\t")
+    #取data list中的第i項進行處理,去除元素中的\n,並利用\n為依據,分割元素成為新串列.
     print('&lt;p&gt;'+group[0]+' | &lt;a href="https://'+group[1]+'.github.io/stage3-ag'+group[0][9]+'"&gt;網站&lt;/a&gt; | &lt;a href="https://github.com/'+group[2]+'/stage3-ag'+group[0][9]+'"&gt;倉儲&lt;/a&gt;&lt;/p&gt;')
-# the following will use group data to generate needed html
+    #使用print依序索引group list中的元素,放入html格式,並依序打印出來.
 
     for j in range(2,18,2):
+    #以2為起始每次加2加到&lt;18,也就是執行迴圈8次.
         try:
             print('&lt;p&gt;'+group[j]+' | Website:'+'&lt;a href="https://'+group[j]+'.github.io/cd2021'+'"&gt;'+group[j]+'&lt;/a&gt;'+' | Repository:'+'&lt;a href="https://github.com/'+group[j]+'/cd2021'+'"&gt;'+group[j]+'&lt;/a&gt;'+' | Group Website:'+'&lt;a href="https://'+group[j]+'.github.io/stage3-ag'+group[0][9]+'"&gt;'+group[j]+'&lt;/a&gt;&lt;/p&gt;')
+    #依序索引group list中的元素放入html格式,並打印出來.
         except:
-            continue</pre>
+            continue
+    #有一組為六人,因此此處會出現out of range錯誤,需使用try...except語法解決.
+#try...except語法為若try下方敘述執行錯誤,則執行except下方敘述,此處我需要迴圈繼續,因此使用continue.</pre>
 <p><strong>成果:</strong></p>
 <p>stage3_ag1 | <a href="https://40823131.github.io/stage3-ag1">網站</a> | <a href="https://github.com/40823131/stage3-ag1">倉儲</a></p>
 <p>40823131 | Website:<a href="https://40823131.github.io/cd2021">40823131</a> | Repository:<a href="https://github.com/40823131/cd2021">40823131</a> | Group Website:<a href="https://40823131.github.io/stage3-ag1">40823131</a></p>
@@ -314,7 +322,8 @@ for i in range(len(data)):
 <p>40823117 | Website:<a href="https://40823117.github.io/cd2021">40823117</a> | Repository:<a href="https://github.com/40823117/cd2021">40823117</a> | Group Website:<a href="https://40823117.github.io/stage3-ag6">40823117</a></p>
 <p>40823129 | Website:<a href="https://40823129.github.io/cd2021">40823129</a> | Repository:<a href="https://github.com/40823129/cd2021">40823129</a> | Group Website:<a href="https://40823129.github.io/stage3-ag6">40823129</a></p>
 <p>40823149 | Website:<a href="https://40823149.github.io/cd2021">40823149</a> | Repository:<a href="https://github.com/40823149/cd2021">40823149</a> | Group Website:<a href="https://40823149.github.io/stage3-ag6">40823149</a></p>
-<p>40823153 | Website:<a href="https://40823153.github.io/cd2021">40823153</a> | Repository:<a href="https://github.com/40823153/cd2021">40823153</a> | Group Website:<a href="https://40823153.github.io/stage3-ag6">40823153</a></p><h3>task2</h3>
+<p>40823153 | Website:<a href="https://40823153.github.io/cd2021">40823153</a> | Repository:<a href="https://github.com/40823153/cd2021">40823153</a> | Group Website:<a href="https://40823153.github.io/stage3-ag6">40823153</a></p>
+<h3>task2</h3>
 <p><span>將個人在 stage1 與 stage2 所完成的 coppeliasim 場景, 採 Python remote API 進行操控.</span></p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/1hFdsrUOOTM" title="YouTube video player" width="560"></iframe></p>
 <p>Python remote API程式:</p>
