@@ -196,15 +196,44 @@ for i in range(len(data)):
 
     for j in range(2,18,2):
     #以2為起始每次加2加到&lt;18,也就是執行迴圈8次.
-        try:
+        #try:
             print('&lt;p&gt;'+group[j]+' | Website:'+'&lt;a href="https://'+group[j]+'.github.io/cd2021'+'"&gt;'+group[j]+'&lt;/a&gt;'+' | Repository:'+'&lt;a href="https://github.com/'+group[j]+'/cd2021'+'"&gt;'+group[j]+'&lt;/a&gt;'+' | Group Website:'+'&lt;a href="https://'+group[j]+'.github.io/stage3-ag'+group[0][9]+'"&gt;'+group[j]+'&lt;/a&gt;&lt;/p&gt;')
     #依序索引group list中的元素放入html格式,並打印出來.
         except:
             continue
     #有一組為六人,因此此處會出現out of range錯誤,需使用try...except語法解決.
 #try...except語法為若try下方敘述執行錯誤,則執行except下方敘述,此處我需要迴圈繼續,因此使用continue.</pre>
+<p><strong>程式碼(version4)</strong></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># open file, default is read mode, since txt content no chinese char4
+# no encoding = "UTF-08" is needed
+with open("stage3_2a.txt") as fh:
+    #開啟stage3_2a.txt檔案並命名為fh,並且使用with語法無需使用關閉語法cloce(),文件開啟後會自動關閉.
+    data = fh.readlines()
+    #讀取文件的每一行,直到遇到结束符 EOF.
+    data = [a.replace('4823122','40823122') for a in data]
+    #利用取代(replace)修正讀取出的錯誤學號.
+    data = [c.replace('\t\t\t\t','') for c in data]
+    #其中一組為六人,因此需消除列表中的多餘空格.
+    data = [b.replace('_','-') for b in data]
+    #將_取代為-,以便後續存取.
+    #print(data)
+#print(len(data))
+for i in range(len(data)):
+    group = data[i].rstrip("\n").split("\t")
+    #print(group)
+    print('&lt;p&gt;'+group[0]+' | &lt;a href="https://'+group[1]+'.github.io/stage3-ag'+group[0]+'"&gt;網站&lt;/a&gt; | &lt;a href="https://github.com/'+group[2]+'/'+group[0]+'"&gt;倉儲&lt;/a&gt;&lt;/p&gt;')
+# the following will use group data to generate needed html
+
+    for j in range(2,18,2):
+        #try:
+            print('&lt;p&gt;'+group[j]+' | Website:'+'&lt;a href="https://'+group[j]+'.github.io/cd2021'+'"&gt;'+group[j]+'&lt;/a&gt;'+' | Repository:'+'&lt;a href="https://github.com/'+group[j]+'/cd2021'+'"&gt;'+group[j]+'&lt;/a&gt;'+' | Group Website:'+'&lt;a href="https://'+group[j]+'.github.io/'+group[0]+'"&gt;'+group[j]+'&lt;/a&gt;&lt;/p&gt;')
+        except:
+            continue
+ #有一組為六人,因此此處會出現out of range錯誤,需使用try...except語法解決.
+#try...except語法為若try下方敘述執行錯誤,則執行except下方敘述,此處我需要迴圈繼續,因此使用continue.            
+            </pre>
 <p><strong>成果:</strong></p>
-<p>stage3_ag1 | <a href="https://40823131.github.io/stage3-ag1">網站</a> | <a href="https://github.com/40823131/stage3-ag1">倉儲</a></p>
+<p>stage3-ag1 | <a href="https://40823131.github.io/stage3-agstage3-ag1">網站</a> | <a href="https://github.com/40823131/stage3-ag1">倉儲</a></p>
 <p>40823131 | Website:<a href="https://40823131.github.io/cd2021">40823131</a> | Repository:<a href="https://github.com/40823131/cd2021">40823131</a> | Group Website:<a href="https://40823131.github.io/stage3-ag1">40823131</a></p>
 <p>a40823112 | Website:<a href="https://a40823112.github.io/cd2021">a40823112</a> | Repository:<a href="https://github.com/a40823112/cd2021">a40823112</a> | Group Website:<a href="https://a40823112.github.io/stage3-ag1">a40823112</a></p>
 <p>40823123 | Website:<a href="https://40823123.github.io/cd2021">40823123</a> | Repository:<a href="https://github.com/40823123/cd2021">40823123</a> | Group Website:<a href="https://40823123.github.io/stage3-ag1">40823123</a></p>
@@ -213,7 +242,7 @@ for i in range(len(data)):
 <p>40823109 | Website:<a href="https://40823109.github.io/cd2021">40823109</a> | Repository:<a href="https://github.com/40823109/cd2021">40823109</a> | Group Website:<a href="https://40823109.github.io/stage3-ag1">40823109</a></p>
 <p>40823116 | Website:<a href="https://40823116.github.io/cd2021">40823116</a> | Repository:<a href="https://github.com/40823116/cd2021">40823116</a> | Group Website:<a href="https://40823116.github.io/stage3-ag1">40823116</a></p>
 <p>40823108 | Website:<a href="https://40823108.github.io/cd2021">40823108</a> | Repository:<a href="https://github.com/40823108/cd2021">40823108</a> | Group Website:<a href="https://40823108.github.io/stage3-ag1">40823108</a></p>
-<p>stage3_ag2 | <a href="https://40823151.github.io/stage3-ag2">網站</a> | <a href="https://github.com/40823151/stage3-ag2">倉儲</a></p>
+<p>stage3-ag2 | <a href="https://40823151.github.io/stage3-agstage3-ag2">網站</a> | <a href="https://github.com/40823151/stage3-ag2">倉儲</a></p>
 <p>40823151 | Website:<a href="https://40823151.github.io/cd2021">40823151</a> | Repository:<a href="https://github.com/40823151/cd2021">40823151</a> | Group Website:<a href="https://40823151.github.io/stage3-ag2">40823151</a></p>
 <p>40623121 | Website:<a href="https://40623121.github.io/cd2021">40623121</a> | Repository:<a href="https://github.com/40623121/cd2021">40623121</a> | Group Website:<a href="https://40623121.github.io/stage3-ag2">40623121</a></p>
 <p>40871106 | Website:<a href="https://40871106.github.io/cd2021">40871106</a> | Repository:<a href="https://github.com/40871106/cd2021">40871106</a> | Group Website:<a href="https://40871106.github.io/stage3-ag2">40871106</a></p>
@@ -222,14 +251,14 @@ for i in range(len(data)):
 <p>40823106 | Website:<a href="https://40823106.github.io/cd2021">40823106</a> | Repository:<a href="https://github.com/40823106/cd2021">40823106</a> | Group Website:<a href="https://40823106.github.io/stage3-ag2">40823106</a></p>
 <p>40823101 | Website:<a href="https://40823101.github.io/cd2021">40823101</a> | Repository:<a href="https://github.com/40823101/cd2021">40823101</a> | Group Website:<a href="https://40823101.github.io/stage3-ag2">40823101</a></p>
 <p>40823132 | Website:<a href="https://40823132.github.io/cd2021">40823132</a> | Repository:<a href="https://github.com/40823132/cd2021">40823132</a> | Group Website:<a href="https://40823132.github.io/stage3-ag2">40823132</a></p>
-<p>stage3_ag3 | <a href="https://40823119.github.io/stage3-ag3">網站</a> | <a href="https://github.com/40823119/stage3-ag3">倉儲</a></p>
+<p>stage3-ag3 | <a href="https://40823119.github.io/stage3-agstage3-ag3">網站</a> | <a href="https://github.com/40823119/stage3-ag3">倉儲</a></p>
 <p>40823119 | Website:<a href="https://40823119.github.io/cd2021">40823119</a> | Repository:<a href="https://github.com/40823119/cd2021">40823119</a> | Group Website:<a href="https://40823119.github.io/stage3-ag3">40823119</a></p>
 <p>40823150 | Website:<a href="https://40823150.github.io/cd2021">40823150</a> | Repository:<a href="https://github.com/40823150/cd2021">40823150</a> | Group Website:<a href="https://40823150.github.io/stage3-ag3">40823150</a></p>
 <p>40823103 | Website:<a href="https://40823103.github.io/cd2021">40823103</a> | Repository:<a href="https://github.com/40823103/cd2021">40823103</a> | Group Website:<a href="https://40823103.github.io/stage3-ag3">40823103</a></p>
 <p>40823107 | Website:<a href="https://40823107.github.io/cd2021">40823107</a> | Repository:<a href="https://github.com/40823107/cd2021">40823107</a> | Group Website:<a href="https://40823107.github.io/stage3-ag3">40823107</a></p>
 <p>40523252 | Website:<a href="https://40523252.github.io/cd2021">40523252</a> | Repository:<a href="https://github.com/40523252/cd2021">40523252</a> | Group Website:<a href="https://40523252.github.io/stage3-ag3">40523252</a></p>
 <p>40823154 | Website:<a href="https://40823154.github.io/cd2021">40823154</a> | Repository:<a href="https://github.com/40823154/cd2021">40823154</a> | Group Website:<a href="https://40823154.github.io/stage3-ag3">40823154</a></p>
-<p>stage3_ag4 | <a href="https://40823142.github.io/stage3-ag4">網站</a> | <a href="https://github.com/40823142/stage3-ag4">倉儲</a></p>
+<p>stage3-ag4 | <a href="https://40823142.github.io/stage3-agstage3-ag4">網站</a> | <a href="https://github.com/40823142/stage3-ag4">倉儲</a></p>
 <p>40823142 | Website:<a href="https://40823142.github.io/cd2021">40823142</a> | Repository:<a href="https://github.com/40823142/cd2021">40823142</a> | Group Website:<a href="https://40823142.github.io/stage3-ag4">40823142</a></p>
 <p>40823144 | Website:<a href="https://40823144.github.io/cd2021">40823144</a> | Repository:<a href="https://github.com/40823144/cd2021">40823144</a> | Group Website:<a href="https://40823144.github.io/stage3-ag4">40823144</a></p>
 <p>40823127 | Website:<a href="https://40823127.github.io/cd2021">40823127</a> | Repository:<a href="https://github.com/40823127/cd2021">40823127</a> | Group Website:<a href="https://40823127.github.io/stage3-ag4">40823127</a></p>
@@ -238,7 +267,7 @@ for i in range(len(data)):
 <p>40823135 | Website:<a href="https://40823135.github.io/cd2021">40823135</a> | Repository:<a href="https://github.com/40823135/cd2021">40823135</a> | Group Website:<a href="https://40823135.github.io/stage3-ag4">40823135</a></p>
 <p>40823114 | Website:<a href="https://40823114.github.io/cd2021">40823114</a> | Repository:<a href="https://github.com/40823114/cd2021">40823114</a> | Group Website:<a href="https://40823114.github.io/stage3-ag4">40823114</a></p>
 <p>40823146 | Website:<a href="https://40823146.github.io/cd2021">40823146</a> | Repository:<a href="https://github.com/40823146/cd2021">40823146</a> | Group Website:<a href="https://40823146.github.io/stage3-ag4">40823146</a></p>
-<p>stage3_ag5 | <a href="https://40823111.github.io/stage3-ag5">網站</a> | <a href="https://github.com/40823111/stage3-ag5">倉儲</a></p>
+<p>stage3-ag5 | <a href="https://40823111.github.io/stage3-agstage3-ag5">網站</a> | <a href="https://github.com/40823111/stage3-ag5">倉儲</a></p>
 <p>40823111 | Website:<a href="https://40823111.github.io/cd2021">40823111</a> | Repository:<a href="https://github.com/40823111/cd2021">40823111</a> | Group Website:<a href="https://40823111.github.io/stage3-ag5">40823111</a></p>
 <p>40823115 | Website:<a href="https://40823115.github.io/cd2021">40823115</a> | Repository:<a href="https://github.com/40823115/cd2021">40823115</a> | Group Website:<a href="https://40823115.github.io/stage3-ag5">40823115</a></p>
 <p>40823128 | Website:<a href="https://40823128.github.io/cd2021">40823128</a> | Repository:<a href="https://github.com/40823128/cd2021">40823128</a> | Group Website:<a href="https://40823128.github.io/stage3-ag5">40823128</a></p>
@@ -247,7 +276,7 @@ for i in range(len(data)):
 <p>40823124 | Website:<a href="https://40823124.github.io/cd2021">40823124</a> | Repository:<a href="https://github.com/40823124/cd2021">40823124</a> | Group Website:<a href="https://40823124.github.io/stage3-ag5">40823124</a></p>
 <p>40823139 | Website:<a href="https://40823139.github.io/cd2021">40823139</a> | Repository:<a href="https://github.com/40823139/cd2021">40823139</a> | Group Website:<a href="https://40823139.github.io/stage3-ag5">40823139</a></p>
 <p>40823126 | Website:<a href="https://40823126.github.io/cd2021">40823126</a> | Repository:<a href="https://github.com/40823126/cd2021">40823126</a> | Group Website:<a href="https://40823126.github.io/stage3-ag5">40823126</a></p>
-<p>stage3_ag6 | <a href="https://40823152.github.io/stage3-ag6">網站</a> | <a href="https://github.com/40823152/stage3-ag6">倉儲</a></p>
+<p>stage3-ag6 | <a href="https://40823152.github.io/stage3-agstage3-ag6">網站</a> | <a href="https://github.com/40823152/stage3-ag6">倉儲</a></p>
 <p>40823152 | Website:<a href="https://40823152.github.io/cd2021">40823152</a> | Repository:<a href="https://github.com/40823152/cd2021">40823152</a> | Group Website:<a href="https://40823152.github.io/stage3-ag6">40823152</a></p>
 <p>40823110 | Website:<a href="https://40823110.github.io/cd2021">40823110</a> | Repository:<a href="https://github.com/40823110/cd2021">40823110</a> | Group Website:<a href="https://40823110.github.io/stage3-ag6">40823110</a></p>
 <p>40823122 | Website:<a href="https://40823122.github.io/cd2021">40823122</a> | Repository:<a href="https://github.com/40823122/cd2021">40823122</a> | Group Website:<a href="https://40823122.github.io/stage3-ag6">40823122</a></p>
