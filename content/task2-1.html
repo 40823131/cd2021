@@ -133,8 +133,37 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">Stage1 << <a href='Stage1.html'>Previous</a> <a href='建立網頁.html'>Next</a> >> 建立網頁<br /><h1>W1</h1>
-<br />Stage1 << <a href='Stage1.html'>Previous</a> <a href='建立網頁.html'>Next</a> >> 建立網頁</div>
+    <div id="tipue_search_content">task1 << <a href='task1.html'>Previous</a> <a href='W11.html'>Next</a> >> W11<br /><h1>task2-1</h1>
+<p><span>將個人在 stage1 與 stage2 所完成的 coppeliasim 場景, 採 Python remote API 進行操控.</span></p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/1hFdsrUOOTM" title="YouTube video player" width="560"></iframe></p>
+<p>Python remote API程式:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import sim as vrep
+import sys
+# child threaded script: 
+#simExtRemoteApiStart(19997)
+ 
+vrep.simxFinish(-1)
+ 
+clientID = vrep.simxStart('192.168.50.154', 19997, True, True, 5000, 5)
+ 
+if clientID!= -1:
+    print("Connected to remote server")
+else:
+    print('Connection not successful')
+    sys.exit('Could not connect')
+ 
+errorCode,U_motor_handle=vrep.simxGetObjectHandle(clientID,'U',vrep.simx_opmode_oneshot_wait)
+ 
+errorCode,D_motor_handle=vrep.simxGetObjectHandle(clientID,'D',vrep.simx_opmode_oneshot_wait)
+ 
+if errorCode == -1:
+    print('Can not find U or D motor')
+    sys.exit()
+ 
+errorCode=vrep.simxSetJointTargetVelocity(clientID,U_motor_handle,0, vrep.simx_opmode_oneshot_wait)
+errorCode=vrep.simxSetJointTargetVelocity(clientID,D_motor_handle,0, vrep.simx_opmode_oneshot_wait)
+</pre>
+<br />task1 << <a href='task1.html'>Previous</a> <a href='W11.html'>Next</a> >> W11</div>
         
     <!-- footer -->
       <div class="container">

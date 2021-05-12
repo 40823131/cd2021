@@ -387,4 +387,36 @@ if errorCode == -1:
 errorCode=vrep.simxSetJointTargetVelocity(clientID,U_motor_handle,0, vrep.simx_opmode_oneshot_wait)
 errorCode=vrep.simxSetJointTargetVelocity(clientID,D_motor_handle,0, vrep.simx_opmode_oneshot_wait)
 </pre>
-<p><span> </span></p>
+<h2>W11</h2>
+<h3>task2</h3>
+<p>利用Python Remote API，控制機械手臂。</p>
+<p>程式:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import sim as vrep
+import sys
+import math
+# child threaded script: 
+#simExtRemoteApiStart(19999)
+ 
+vrep.simxFinish(-1)
+ 
+clientID = vrep.simxStart('127.0.0.1', 19999, True, True, 5000, 5)
+ 
+if clientID!= -1:
+    print("Connected to remote server")
+else:
+    print('Connection not successful')
+    sys.exit('Could not connect')
+
+vrep.simxStartSimulation(clientID, vrep.simx_opmode_oneshot)
+
+RC1, UR5_joint1_Handle = vrep.simxGetObjectHandle(clientID, 'Dobot_motor1', vrep.simx_opmode_blocking)
+RC2, UR5_joint2_Handle = vrep.simxGetObjectHandle(clientID, 'Dobot_motor2', vrep.simx_opmode_blocking)
+RC3, UR5_joint3_Handle = vrep.simxGetObjectHandle(clientID, 'Dobot_motor3', vrep.simx_opmode_blocking)
+RC4, UR5_joint4_Handle = vrep.simxGetObjectHandle(clientID, 'Dobot_motor4', vrep.simx_opmode_blocking)
+
+vrep.simxSetJointTargetPosition(clientID,UR5_joint1_Handle,0*math.pi/180,vrep.simx_opmode_oneshot)
+vrep.simxSetJointTargetPosition(clientID,UR5_joint2_Handle,0*math.pi/180,vrep.simx_opmode_oneshot)
+vrep.simxSetJointTargetPosition(clientID,UR5_joint3_Handle,0*math.pi/180,vrep.simx_opmode_oneshot)
+vrep.simxSetJointTargetPosition(clientID,UR5_joint4_Handle,0*math.pi/180,vrep.simx_opmode_oneshot)</pre>
+<p>影片:</p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/FC-_oYJnV04" title="YouTube video player" width="560"></iframe></p>
