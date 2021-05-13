@@ -357,7 +357,7 @@ for i in range(len(data)):
 <p>40823129 | Website:<a href="https://40823129.github.io/cd2021">40823129</a> | Repository:<a href="https://github.com/40823129/cd2021">40823129</a> | Group Website:<a href="https://40823129.github.io/stage3-ag6">40823129</a></p>
 <p>40823149 | Website:<a href="https://40823149.github.io/cd2021">40823149</a> | Repository:<a href="https://github.com/40823149/cd2021">40823149</a> | Group Website:<a href="https://40823149.github.io/stage3-ag6">40823149</a></p>
 <p>40823153 | Website:<a href="https://40823153.github.io/cd2021">40823153</a> | Repository:<a href="https://github.com/40823153/cd2021">40823153</a> | Group Website:<a href="https://40823153.github.io/stage3-ag6">40823153</a></p>
-<h3>task2</h3>
+<h3>task2-1</h3>
 <p><span>將個人在 stage1 與 stage2 所完成的 coppeliasim 場景, 採 Python remote API 進行操控.</span></p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/1hFdsrUOOTM" title="YouTube video player" width="560"></iframe></p>
 <p>Python remote API程式:</p>
@@ -388,7 +388,7 @@ errorCode=vrep.simxSetJointTargetVelocity(clientID,U_motor_handle,0, vrep.simx_o
 errorCode=vrep.simxSetJointTargetVelocity(clientID,D_motor_handle,0, vrep.simx_opmode_oneshot_wait)
 </pre>
 <h2>W11</h2>
-<h3>task2</h3>
+<h3>task2-2</h3>
 <p>利用Python Remote API，控制機械手臂。</p>
 <p>程式:</p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import sim as vrep
@@ -420,3 +420,8 @@ vrep.simxSetJointTargetPosition(clientID,UR5_joint3_Handle,0*math.pi/180,vrep.si
 vrep.simxSetJointTargetPosition(clientID,UR5_joint4_Handle,0*math.pi/180,vrep.simx_opmode_oneshot)</pre>
 <p>影片:</p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/FC-_oYJnV04" title="YouTube video player" width="560"></iframe></p>
+<p></p>
+<h3><span>W11直播教學影片</span></h3>
+<p><span>利用虛擬主機建立Ethercalc伺服器&amp;task1&amp;利用Python Remote API程式控制機械手臂除錯測試。</span></p>
+<p><span>最後在直播中找到機械手臂Python Remote API程式中的vrep.simx_opmode_oneshot沒有加上_wait導致作動秒數過短，無法順利作動，修改後即可正常操控。</span></p>
+<p><span><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/KI5hpfMHjgo" title="YouTube video player" width="560"></iframe></span></p>
