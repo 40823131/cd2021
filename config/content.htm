@@ -420,6 +420,16 @@ vrep.simxSetJointTargetPosition(clientID,UR5_joint4_Handle,0*math.pi/180,vrep.si
 <h3>Use aegisub to edit and generate subtitles</h3>
 <p><span class="Y2IQFc" lang="en"></span></p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/q5VcnCf6iaY" title="YouTube video player" width="560"></iframe></p>
+<h1>W14</h1>
+<p>目標:</p>
+<p>1.請簡化上列四軸機械手臂取放方塊零件的 Lua 程式, 去除客製化控制 plugin 語法部分, 且刪除其舊有的 GUI 程式控制介面, 改用 CoppeliaSim 制式的 Lua Script 編寫與原先取放方塊零件相同的操控流程.</p>
+<p>2.請採用 CoppeliaSim<span> </span><a href="https://www.coppeliarobotics.com/helpFiles/en/customUIPlugin.htm">Qt based GUI 介面</a>, 改寫原<span> </span><a href="https://github.com/CoppeliaRobotics/models/blob/master/robots/non-mobile/MTB%20robot.ttm">MTB robot.ttm</a><span> </span>模型中的 legacy GUI 介面視窗.</p>
+<p>關於Qt based GUI的資料:</p>
+<p><a href="https://www.coppeliarobotics.com/helpFiles/en/customUIPlugin.htm">https://www.coppeliarobotics.com/helpFiles/en/customUIPlugin.htm</a></p>
+<p><a href="https://www.coppeliarobotics.com/helpFiles/en/simUI-widgets.htm">https://www.coppeliarobotics.com/helpFiles/en/simUI-widgets.htm</a></p>
+<p>關於joint control MTB:</p>
+<p><a href="https://forum.coppeliarobotics.com/viewtopic.php?t=4749">https://forum.coppeliarobotics.com/viewtopic.php?t=4749</a></p>
+<p> </p>
 <h1>W15</h1>
 <p>本週進度:字幕翻譯並整理。</p>
 <p>part1:</p>
@@ -572,7 +582,8 @@ vrep.simxSetJointTargetPosition(clientID,UR5_joint4_Handle,0*math.pi/180,vrep.si
 <p>So I can substitute that in and do some simplification and I end up with this slightly less complex expression for Q1.</p>
 <p>因此，我可以將其替換並進行一些簡化，最終得到 Q1 的這個稍微不那麼複雜的表達式。</p>
 <p>And it is the same expression that I got following the geometric approach in the previous section.</p>
-<p>這與我在上一節中遵循幾何方法求出的表達式一模一樣。</p><h1>Basic teaching</h1>
+<p>這與我在上一節中遵循幾何方法求出的表達式一模一樣。</p>
+<h1>Basic teaching</h1>
 <h2>Create SSH KEY</h2>
 <p>You can refer to:<a href="https://40823131.github.io/wcm2020/content/%E7%94%A2%E7%94%9FSSH%20KEY.html">Create SSH KEY</a></p>
 <h2>Setting up putty for ssh</h2>
