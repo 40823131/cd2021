@@ -421,8 +421,123 @@ vrep.simxSetJointTargetPosition(clientID,UR5_joint4_Handle,0*math.pi/180,vrep.si
 <p><span class="Y2IQFc" lang="en"></span></p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/q5VcnCf6iaY" title="YouTube video player" width="560"></iframe></p>
 <h1>W15</h1>
+<p>本週進度:字幕翻譯並整理。</p>
 <p>part1:</p>
-<p></p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/IKOGwoJ2HLk" title="YouTube video player" width="560"></iframe></p>
+<p><span>字幕整理:</span></p>
+<p><br/>We saw this simple two-link robot in the previous lecture about forward kinematics.</p>
+<p>我們在上一堂關於正向運動學的課程中看到這個簡單的雙連桿機構。</p>
+<p>Kinematics : 運動學</p>
+<p>The tooltip pose of this robot is described simply by two numbers, the coordinates x and y with respect to the world coordinate frame.</p>
+<p>該機構的提示框由兩個數字簡單描述，相對於絕對坐標系的坐標 x 和 y。</p>
+<p>So, the problem here is that given x and y, we want to determine the joined angles, q1 and q2.</p>
+<p>所以，這裡的問題是有了x和y條件，我們要求解連接角q1和q2的值為多少。</p>
+<p>The solution that we’re going to follow in this particular section is a geometric one.</p>
+<p>我們利用特定幾何來解決這個問題。</p>
+<p>We’re going to start with a simple piece of construction.</p>
+<p>我們從一個簡單的結構開始。</p>
+<p>We’re going to overlay the red triangle on top of our robot.</p>
+<p>我們將在機構上覆蓋紅色三角形。</p>
+<p>We know that the end point coordinate is x, y, so the vertical height of the triangle is y, the horizontal width is x.</p>
+<p>我們知道最終坐標是x，y，所以三角形的垂直高度為y，水平寬度為x。</p>
+<p>And, using Pythagoras theorem, we can write r squared equals x squared plus y squared.</p>
+<p>然後，利用Pythagorean theorem(畢氏定理)，我們可寫出 r² = x ²+ y²。</p>
+<p>So far, so easy.</p>
+<p>到目前為止都很容易。</p>
+<p>Now, w’re going to look at this triangle highlighted here in red and we want to determine the angle alpha.</p>
+<p>現在，我們查看此處凸顯的紅色三角形，並且要確定α角。</p>
+<p>(α=alpha)</p>
+<p>In order to do that, we need to use the cosine rule.</p>
+<p>為了做到這一點，我們須使用餘弦定理。<br/>(餘弦=cosine)</p>
+<p>And, if you’re a little rusty on the cosine rule, here is a bit of a refresher.</p>
+<p>如果你對餘弦定理有點生疏，這裡可以幫助你複習一下。</p>
+<p>We have an arbitrary triangle.</p>
+<p>有一個任意三角形。</p>
+<p>We don’t have any right angles in it and we’re going to label the length of this edge as A and the angle opposite that edge, we’re going to label as little a.</p>
+<p>三角形中沒有任何的直角，將這邊的角度標為小a，而對邊的長度標為A。</p>
+<p>And, we do the same for this edge and this angle, and this edge and this angle.</p>
+<p>我們再對這邊和這個角，以及這邊和這個叫做同樣的事。</p>
+<p>So, all together, the sides are labelled capitals A, B and C, and the angles are labelled little a, little b, and little c.</p>
+<p>以此類推，所有邊都標記為A, B, C，角都標記為a, b, c 。</p>
+<p>So, the cosine rule is simply this relationship here.</p>
+<p>餘弦定理就是這種關係。</p>
+<p>It’s a bit like Pythagoras’ theorem except for this extra term on the end with the cos a in it.</p>
+<p>它有點像畢達哥拉斯定理，不同之處是末端多出了cos a。</p>
+<p>Now, let’s apply the cosine rule to the particular triangle we looked at a moment ago.</p>
+<p>將餘弦定理套用於剛剛看到的特定三角形。</p>
+<p>It’s pretty straightforward to write down this particular relationship.</p>
+<p>寫下此特殊關係很簡單。</p>
+<p>We can isolate the term cos alpha which gives us the angle alpha that we’re interested in.</p>
+<p>我們可分離出 cosα ，只需要得知α角度作為條件。</p>
+<p>And, it’s defined in terms of the constant link lengths, A1 and A2 and the position of the end effector, x and y.</p>
+<p>它是根據恆定連桿長度A1和A2以及最終執行器的位置x和y定義。</p>
+<p>We can write this simple relationship between the angles alpha and q2.</p>
+<p>我們可寫出角度α和q2之間的簡單關係。</p>
+<p>And, we know from the shape of the cosine function that cos of q2 must be equal to negative of cos alpha.</p>
+<p>並且我們從餘弦函數中得知cos q2必須等於 –cos α。</p>
+<p>This time, let’s just write an expression for the cosine of the joined angle q2.</p>
+<p>這次寫出餘弦在連接角q2的表達式。</p>
+<p>Now, we’re going to draw yet another red triangle and we’re going apply some simple trigonometry here.</p>
+<p>我們繪製另一個紅色三角形，並應用三角函數。</p>
+<p>If we know q2, then we know this length and this length of the red triangle.</p>
+<p>如果我們知道q2，就可知道這個長度和這個三角形的長度。</p>
+<p>We can write this relationship for the sine of the joined angle q2.</p>
+<p>我們可以在連接角q2寫出正弦關係。</p>
+<p>Now, we can consider this bigger triangle whose angle is beta and this side length of this triangle is given here in blue.</p>
+<p>現在我們考慮這個大一點的三角形，它角度是β，此三角形的邊長由藍色表示。</p>
+<p>(β=beta)</p>
+<p>And, the length of the other side of the triangle is this.</p>
+<p>且三角形另一邊長度是這個。</p>
+<p>So, now we can write an expression for the angle beta in terms of these parameters here.</p>
+<p>我們可在此根據參數寫出角度β的表達式。</p>
+<p>Going back to the red triangle that we drew earlier, we can establish a relationship between q1 and the angle beta.</p>
+<p>回到之前畫的紅色三角形，我們可建立出q1和β的關係。</p>
+<p>Introduce yet another angle, this one gamma and we can write a relationship between the angle gamma and the tooltip coordinates x and y.</p>
+<p>引入另一個角度ɣ，可寫出角度ɣ和提示框座標x和y之間的關係。</p>
+<p>(ɣ=gamma)</p>
+<p>Now, we can write a simple relationship between the angles that we’ve constructed, gamma and beta and the joined angle we’re interested in which is q1.</p>
+<p>現在我們可建構出角度β和ɣ與連接角度q1之間的關係。</p>
+<p>And, the total relationship looks something like this.</p>
+<p>而且，整個關係看起來像這樣。</p>
+<p>Quite a complex relationship, it gives us the angle of joined one, that’s q1 in terms of the end effector coordinates y and x, and a bunch of constants, a1 and a2, and it’s also a function of the second joint angle, q2.</p>
+<p>相當複雜的關係，它提供連接的角度，即最終執行器坐標 y 和 x 的 q1，以及一系列常數 a1 和 a2，它也是第二個關節角度 q2 的函數。</p>
+<p>So, let’s summarize what it is that we have derived here.</p>
+<p>所以，總結我們在這裡得出了什麼。</p>
+<p>We have an expression for the cosine of q2 and we have an expression for q1.</p>
+<p>我們有q2餘弦方程式與q1方程式。</p>
+<p>Now, the cosine function is symmetrical about 0.</p>
+<p>餘弦函數在0對稱。</p>
+<p>So, if we know the value of the cosine of q2, then there are two possible solutions a positive angle and a negative angle.</p>
+<p>所以我們知道cosq2的值可能為正角和負角。</p>
+<p>We’re going to explicitly choose the positive angle. Which means that I can write this expression here.</p>
+<p>我們選擇正角，表示我可以寫出此表達式。</p>
+<p>And now, we have what we call the inverse kinematic solution for this two-link robot.</p>
+<p>現在我們能用逆向運動學來解決雙連桿機構。</p>
+<p>(逆向運動學=inverse kinematic,IK)</p>
+<p>We have an expression for the two joined angles, q1 and q2 in terms of the end effector pose x and y, and a bunch of constants.</p>
+<p>我們有兩個連接角 q1 和 q2 的表達式，根據最終執行器的x 和 y 以及一系列常數。</p>
+<p>You notice that the two equations are not independent.</p>
+<p>你要注意到兩方程式不是獨立的。</p>
+<p>The equation for q1, in fact, depends on the solution for q2.</p>
+<p>事實上，q1方程式取決於q2的解。</p>
+<p>In this case, q2 is negative and we’re going to write the solution for q2 with a negative sign in front of the inverse cosine.</p>
+<p>在這情況下，q2為負，我們將在q2反餘弦的解前面加上負號。</p>
+<p>Now, we need to solve for q1, so we’re going to introduce this particular red triangle, the angle beta that we solved previously, and the angle gamma which is defined in terms of y and x.</p>
+<p>我們需求解q1，因此采用這個特定的三角形，之前求解的角度β以及根據y和x定義的角度ɣ。</p>
+<p>Now, we write a slightly different relationship between q1, gamma and beta, different to what we had before.</p>
+<p>q1、ɣ和β之間的關西，和之前求的不同。</p>
+<p>There’s a change of sign involved.</p>
+<p>涉及到符號的變化。</p>
+<p>Then, we can substitute all that previous equation and come up with this expression for q1.</p>
+<p>然後我們可代換之前所有等式，並求得此q1方程式。</p>
+<p>Again, there is a change of sign here.</p>
+<p>同樣，這裡的符號發生了變化。</p>
+<p>Previously, this was a negative sign.</p>
+<p>先前，這是個負號。</p>
+<p>And, here in summary form is the solution for the inverse kinematics of our two-link robot when it is in this particular configuration, where q2 is negative.</p>
+<p>這是雙連桿機構在此逆向運動學的總形式，其中q2為負。</p>
+<p>Let’s compare the two solutions, the case where q2 is positive and the case where q2 is negative.</p>
+<p>讓我們比較兩個解決方案，q2為正和q2為負的情況。</p>
 <p>part2:</p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/eIZuz1XCd0w" title="YouTube video player" width="560"></iframe></p>
 <p>字幕整理:</p>
