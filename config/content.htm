@@ -429,11 +429,31 @@ vrep.simxSetJointTargetPosition(clientID,UR5_joint4_Handle,0*math.pi/180,vrep.si
 <p><a href="https://www.coppeliarobotics.com/helpFiles/en/simUI-widgets.htm">https://www.coppeliarobotics.com/helpFiles/en/simUI-widgets.htm</a></p>
 <p>關於joint control MTB:</p>
 <p><a href="https://forum.coppeliarobotics.com/viewtopic.php?t=4749">https://forum.coppeliarobotics.com/viewtopic.php?t=4749</a></p>
-<h2>改用 CoppeliaSim 制式的 Lua Script 編寫與原先取放方塊零件相同的操控流程</h2>
+<h2>使用QT based GUI介面改寫 legacy GUI介面</h2>
+<p>和組員<a href="https://a40823112.github.io/cd2021/content/index.html">40823112</a>一起研究了很久才寫出的QT based GUI介面，但最終在利用介面控制MTB_robot的過程中出現錯誤，這部分我們還在持續研究中。</p>
+<p><img alt="" height="527" src="/images/1623332585244.jpg" width="1105"/></p>
+<p><img alt="" height="404" src="/images/1623335008011.jpg" width="397"/></p>
+<p><span>▲</span>QT Based GUI 介面<span>▲</span></p>
+<p></p>
+<pre class="brush:xml;auto-links:false;toolbar:false" contenteditable="false">xml = [[
+&lt;ui closeable="true" onclose="closeEventHandler" resizable="true" size="220,200"&gt;
+    &lt;label text="MTB_Robot control" wordwrap="true" /&gt;
+    
+    &lt;group&gt;
+        &lt;button text="Start move" onclick = "Start_move" /&gt;
+        &lt;button text="Stop move" onclick = "Stop_move" /&gt;
+        &lt;stretch /&gt;
+    &lt;/group&gt;   
+ 
+&lt;/ui&gt;
+]] 
+    ui=simUI.create(xml)</pre>
+<p><span>▲</span>主要介面xml程式<span>▲</span></p><h2>改用 CoppeliaSim 制式的 Lua Script 編寫與原先取放方塊零件相同的操控流程</h2>
 <p><a href="https://drive.google.com/file/d/16uMG_4StrenkU0Zm1dzJOSdPXnySW4P8/view">場景檔(.ttt)</a></p>
 <p><a href="https://drive.google.com/file/d/1ylF3-oBSt8YrLy4uUODG6O507qR1meI0/view">手臂程式(.lua)</a></p>
 <p><a href="https://drive.google.com/file/d/186L5pkGtezjwH84QDKnmt6EsfQAptUjq/view">吸盤程式(.lua)</a></p>
 <p><a href="https://drive.google.com/file/d/1fvapC_pA1T0hP2ZPOUYeFjborA1nrEMw/view?usp=sharing">完整檔案壓縮檔</a></p>
+<p>此次程式的編寫是參考了CoppeliaSim中的Dobot機械手臂的程式，我們在stage2專案中，有使用到此機械手臂，它和MTB的機構項目非常相似，同樣是四軸，且同樣具有吸盤構造，故選擇參考其程式碼。</p>
 <p><span>操作影片如下:</span></p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/frisQ_bcKD8" title="YouTube video player" width="560"></iframe></p>
 <p></p>

@@ -133,8 +133,26 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">分組組員 << <a href='分組組員.html'>Previous</a> <a href='Heroku小組網站.html'>Next</a> >> Heroku小組網站<br /><h1>W6</h1>
-<br />分組組員 << <a href='分組組員.html'>Previous</a> <a href='Heroku小組網站.html'>Next</a> >> Heroku小組網站</div>
+    <div id="tipue_search_content">W14 << <a href='W14.html'>Previous</a> <a href='改用 CoppeliaSim 制式的 Lua Script 編寫與原先取放方塊零件相同的操控流程.html'>Next</a> >> 改用 CoppeliaSim 制式的 Lua Script 編寫與原先取放方塊零件相同的操控流程<br /><h1>使用QT based GUI介面改寫 legacy GUI介面</h1>
+<p>和組員<a href="https://a40823112.github.io/cd2021/content/index.html">40823112</a>一起研究了很久才寫出的QT based GUI介面，但最終在利用介面控制MTB_robot的過程中出現錯誤，這部分我們還在持續研究中。</p>
+<p><img alt="" height="527" src="./../images/1623332585244.jpg" width="1105"/></p>
+<p><img alt="" height="404" src="./../images/1623335008011.jpg" width="397"/></p>
+<p><span>▲</span>QT Based GUI 介面<span>▲</span></p>
+<p></p>
+<pre class="brush:xml;auto-links:false;toolbar:false" contenteditable="false">xml = [[
+&lt;ui closeable="true" onclose="closeEventHandler" resizable="true" size="220,200"&gt;
+    &lt;label text="MTB_Robot control" wordwrap="true" /&gt;
+    
+    &lt;group&gt;
+        &lt;button text="Start move" onclick = "Start_move" /&gt;
+        &lt;button text="Stop move" onclick = "Stop_move" /&gt;
+        &lt;stretch /&gt;
+    &lt;/group&gt;   
+ 
+&lt;/ui&gt;
+]] 
+    ui=simUI.create(xml)</pre>
+<p><span>▲</span>主要介面xml程式<span>▲</span></p><br />W14 << <a href='W14.html'>Previous</a> <a href='改用 CoppeliaSim 制式的 Lua Script 編寫與原先取放方塊零件相同的操控流程.html'>Next</a> >> 改用 CoppeliaSim 制式的 Lua Script 編寫與原先取放方塊零件相同的操控流程</div>
         
     <!-- footer -->
       <div class="container">
